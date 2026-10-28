@@ -1,0 +1,22 @@
+2026-10-28 19:02:49,160 WARNING Anthropic: ANTHROPIC_API_KEY and ANTHROPIC_AUTH_TOKEN are both set. Using ANTHROPIC_API_KEY.
+2026-10-28 19:02:52,970 INFO HTTP Request: POST https://claude.vocareum.com/v1/messages "HTTP/1.1 200 OK"
+2026-10-28 19:02:52,991 INFO validation_failed
+{
+  "decisions_written": 0,
+  "auto_approve": 0,
+  "human_review": 0,
+  "spot_check": 0,
+  "escalations": 1,
+  "pattern_summary": {
+    "premium_amount_absent": {
+      "count": 1,
+      "policies": [
+        "POL-2025-001"
+      ],
+      "categories": [
+        "missing_source"
+      ]
+    }
+  },
+  "output_path": "/voc/work/cd15552-Claude-AI-Engineer-Evaluation-and-Observability/capstone-submission/01-policy-pipeline/perturbation-routing.json"
+}

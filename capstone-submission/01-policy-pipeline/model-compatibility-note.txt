@@ -1,0 +1,12 @@
+The reference reviewer uses claude-sonnet-4-6, which was rejected
+by the Vocareum gateway with HTTP 400 (model not permitted).
+
+A direct API test confirmed that claude-sonnet-4-5-20250929
+was accessible. The reviewer model constant was temporarily
+changed to that model for compatibility testing.
+
+The extractor remains claude-haiku-4-5-20251001.
+The validation and routing algorithms were not changed.
+
+Sonnet 4.5 is deprecated, with a reported end-of-life date
+of November 30, 2026.

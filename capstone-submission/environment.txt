@@ -1,0 +1,3 @@
+]633;E;python3.11 --version;409fe07b-e8f0-460d-8007-192d919a4fe5]633;CPython 3.11.16
+Linux vscode 4.19.0-gvisor #1 SMP Sun Jan 10 15:06:54 PST 2016 x86_64 x86_64 x86_64 GNU/Linux
+Virtual environments: Python 3.11, one per final-exercise solution

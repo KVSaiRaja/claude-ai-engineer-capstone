@@ -1,0 +1,5 @@
+]633;E;echo "=== Ruff ===";409fe07b-e8f0-460d-8007-192d919a4fe5]633;C=== Ruff ===
+All checks passed!
+
+=== Mypy ===
+Success: no issues found in 8 source files

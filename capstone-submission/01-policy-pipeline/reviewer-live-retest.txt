@@ -1,0 +1,23 @@
+/voc/work/cd15552-Claude-AI-Engineer-Evaluation-and-Observability/Build a Validated, Routed Insurance Policy Extraction Pipeline/04-hitl-routing/solution/.venv/lib/python3.11/site-packages/pytest_asyncio/plugin.py:300: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+The event loop scope for asynchronous fixtures will default to the "fixture" caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to "function" scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", "package", "session"
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+============================= test session starts ==============================
+platform linux -- Python 3.11.16, pytest-9.2.0, pluggy-1.7.0 -- /voc/work/cd15552-Claude-AI-Engineer-Evaluation-and-Observability/Build a Validated, Routed Insurance Policy Extraction Pipeline/04-hitl-routing/solution/.venv/bin/python3.11
+cachedir: .pytest_cache
+rootdir: /voc/work/cd15552-Claude-AI-Engineer-Evaluation-and-Observability/Build a Validated, Routed Insurance Policy Extraction Pipeline/04-hitl-routing/solution
+configfile: pyproject.toml
+plugins: asyncio-1.4.1, anyio-4.15.1
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 1 item
+
+tests/test_us03_review.py::test_live_reviewer_returns_per_field_judgement PASSED [100%]
+
+=============================== warnings summary ===============================
+tests/test_us03_review.py::test_live_reviewer_returns_per_field_judgement
+  /voc/work/cd15552-Claude-AI-Engineer-Evaluation-and-Observability/Build a Validated, Routed Insurance Policy Extraction Pipeline/04-hitl-routing/solution/policy_extractor/client.py:27: DeprecationWarning: The model 'claude-sonnet-4-5-20250929' is deprecated and will reach end-of-life on November 30th, 2026.
+  Please migrate to a newer model. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+    result: Message = self._client.messages.create(**kwargs)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+========================= 1 passed, 1 warning in 8.46s =========================

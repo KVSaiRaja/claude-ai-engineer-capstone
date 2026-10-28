@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/voc/work/cd15552-Claude-AI-Engineer-Evaluation-and-Observability/Build a Validated, Routed Insurance Policy Extraction Pipeline/04-hitl-routing/solution/.venv/bin/policy-extractor", line 7, in <module>
+    from policy_extractor.__main__ import main
+  File "/voc/work/cd15552-Claude-AI-Engineer-Evaluation-and-Observability/Build a Validated, Routed Insurance Policy Extraction Pipeline/04-hitl-routing/solution/policy_extractor/__main__.py", line 7
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file

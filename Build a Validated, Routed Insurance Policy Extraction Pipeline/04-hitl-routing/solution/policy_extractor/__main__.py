@@ -5,6 +5,8 @@ review, route, pipeline (end-to-end).
 """
 from __future__ import annotations
 
+import os
+
 import argparse
 import json
 import logging
@@ -148,6 +150,7 @@ def _cmd_pipeline(args: argparse.Namespace) -> int:
         if isinstance(outcome, RetryFutileEscalation):
             continue
         review = independent_review(
+            model=os.environ.get("POLICY_REVIEWER_MODEL", "claude-sonnet-4-6"),
             client=extractor_client,
             source_document=doc,
             extracted_record={
