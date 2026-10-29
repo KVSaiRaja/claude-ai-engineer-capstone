@@ -1,39 +1,5 @@
 # Perturbation Log
 
-For each system, make one deliberate change to an input or configuration, predict the outcome, run
-it, and record what actually happened. See the starters in the Instructions, or design your own (your
-own experiment earns more credit).
-
----
-
-### System 1 — validated, routed pipeline
-
-- **Change I made (file + what I changed):**
-- **Command I ran:**
-- **What I predicted:**
-- **What actually happened (paste the key output line):**
-- **How this differs from the unperturbed run:**
-
----
-
-### System 2 — schema-enforced two-pass extraction
-
-- **Change I made (file + what I changed):**
-- **Command I ran:**
-- **What I predicted:**
-- **What actually happened (paste the key output line):**
-- **How this differs from the unperturbed run:**
-
----
-
-### System 3 — multi-source synthesis
-
-- **Change I made (file + what I changed):**
-- **Command I ran:**
-- **What I predicted:**
-- **What actually happened (paste the key output line):**
-- **How this differs from the unperturbed run:**
-
 ## Experiment 1 — Insurance Policy: Missing Premium
 
 **Project:** Validated, Routed Insurance Policy Extraction Pipeline
@@ -43,6 +9,14 @@ own experiment earns more credit).
 **Perturbation:** Replaced the explicitly stated premium amount
 ($1,847.62) with `NOT PROVIDED` in an isolated copy of the policy.
 The original source document was not modified.
+
+**Command run (from policy solution directory):**
+
+```bash
+POLICY_REVIEWER_MODEL=claude-sonnet-4-5 uv run policy-extractor pipeline "$ROOT/capstone-submission/01-policy-pipeline/perturbation-input" --routing-out "$ROOT/capstone-submission/01-policy-pipeline/perturbation-routing.json"
+```
+
+`ROOT` is the absolute repository path.
 
 **Prediction:** The extractor should not invent a premium.
 The validator should detect a missing required field, classify it
@@ -58,6 +32,8 @@ as `missing_source`, and escalate the record without auto-approval.
 - Auto-approvals: 0
 - Routing JSON: empty array (`[]`)
 - One API request appeared in the log
+
+**Difference from unperturbed run:** The original POL-2025-001 contained a premium of $1,847.62 and produced a `human_review` routing decision. The perturbed policy omitted the premium, triggered `missing_source` escalation, and produced zero routing decisions.
 
 **Conclusion:** The pipeline detected missing premium information
 and escalated the record instead of auto-approving it. The log
@@ -79,6 +55,14 @@ extracted field value was not separately captured.
 $10,892.17 to $11,392.17 in an isolated copy of the paystub.
 The five individual earnings components were unchanged.
 
+**Command run (from mortgage solution directory):**
+
+```bash
+uv run mortgage-extract "$ROOT/capstone-submission/02-mortgage-extraction/perturbation-input/income_sum_mismatch.txt"
+```
+
+`ROOT` is the absolute repository path.
+
 **Prediction:** The extractor should preserve the modified
 stated total and the validator should detect a $1,750.00
 mathematical discrepancy.
@@ -92,10 +76,11 @@ mathematical discrepancy.
 - Discrepancy field: total_monthly_income
 - Process exit status: 1
 
+**Difference from unperturbed run:** The unmodified paystub stated $10,892.17, with calculated income $9,642.17 and delta -$1,250.00. The perturbed paystub stated $11,392.17, with delta -$1,750.00 and `consistent: false`.
+
 **Conclusion:** The system correctly identified the altered
 income total and reported the exact mathematical discrepancy.
-The CLI returned exit status 1; its intended meaning should
-be checked separately.
+The CLI returned exit status 1, indicating a failed consistency check.
 
 **Evidence:**
 - 02-mortgage-extraction/perturbation-input/income_sum_mismatch.txt
